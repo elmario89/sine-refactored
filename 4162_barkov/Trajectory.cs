@@ -22,10 +22,10 @@ namespace _4162_barkov
             _floatPy0 = pbox.Height / 2;
 
             // width of sine by x with public multiplier (period)
-            _floatPPeriod = pbox.Width;
+            _floatPPeriod = pbox.Width * floatPScaleX;
 
             // height of sine by y with public multiplier (amplitude)
-            _floatPAmplitude = (pbox.Height / 2);
+            _floatPAmplitude = (pbox.Height / 2) * floatPScaleY;
 
             Pen pen = new Pen(Brushes.Black, 0.01f);
 
@@ -39,8 +39,8 @@ namespace _4162_barkov
 
             for (float angle = 0; angle <= intPFrequency * Math.PI; angle += 0.001f)
             {
-                x = _floatPx0 - (((_floatPPeriod * floatPScaleX) * angle) / (float)(intPFrequency * Math.PI));
-                y = _floatPy0 - (_floatPAmplitude * floatPScaleY) * (float)Math.Sin(angle);
+                x = _floatPx0 - ((_floatPPeriod * angle) / (float)(intPFrequency * Math.PI));
+                y = _floatPy0 - _floatPAmplitude * (float)Math.Sin(angle);
                 g.DrawLine(pen, x, y, x + 0.1f, y + 0.1f);
             }
 
