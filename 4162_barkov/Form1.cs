@@ -6,7 +6,7 @@ namespace _4162_barkov
 {
     public partial class frmMain : Form
     {
-        private Trajectory _Trajectory;
+        private Trajectory _trajectory;
         public frmMain()
         {
             InitializeComponent();
@@ -14,7 +14,7 @@ namespace _4162_barkov
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            _Trajectory = new Trajectory();
+            _trajectory = new Trajectory();
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
@@ -24,10 +24,10 @@ namespace _4162_barkov
             pboxFWorkArea.Height = ClientSize.Height;
             pboxFWorkArea.Width = baseWidth;
 
-            _Trajectory.floatPScaleX = tbarFTrajectorySizeX.Value * 0.02f;
-            _Trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * 0.02f;
-            _Trajectory.intPFrequency = tbarFTrajectoryFrequency.Value;
-            _Trajectory.Draw(pboxFWorkArea, e.Graphics);
+            _trajectory.floatPScaleX = tbarFTrajectorySizeX.Value * 0.02f;
+            _trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * 0.02f;
+            _trajectory.intPFrequency = tbarFTrajectoryFrequency.Value;
+            _trajectory.Draw(pboxFWorkArea, e.Graphics);
 
             pboxFWorkArea.Invalidate();
         }
