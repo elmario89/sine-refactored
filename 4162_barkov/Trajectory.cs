@@ -18,7 +18,9 @@ namespace _4162_barkov
 
         public void Draw(PictureBox pbox, Graphics g) 
         {
-            _floatPx0 = pbox.Width / 2 + pbox.Width / 2 * floatPScaleX;
+            // x0 right end coordinates
+            // y0 horizontal line coordinates
+            _floatPx0 = (pbox.Width + pbox.Width * floatPScaleX) / 2;
             _floatPy0 = pbox.Height / 2;
 
             // width of sine by x with public multiplier (period)
