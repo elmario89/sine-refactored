@@ -109,6 +109,7 @@
             // 
             this.tbarFTrajectoryFrequency.Location = new System.Drawing.Point(7, 196);
             this.tbarFTrajectoryFrequency.Maximum = 50;
+            this.tbarFTrajectoryFrequency.Minimum = 1;
             this.tbarFTrajectoryFrequency.Name = "tbarFTrajectoryFrequency";
             this.tbarFTrajectoryFrequency.Size = new System.Drawing.Size(261, 56);
             this.tbarFTrajectoryFrequency.TabIndex = 4;
