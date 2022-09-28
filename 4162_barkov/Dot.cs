@@ -30,6 +30,13 @@ namespace _4162_barkov
                 floatPDotAngle += 0.01f;
 
                 pointFPpointPosition = getXY();
+
+                if (floatPDotAngle > intPFrequency * Math.PI)
+                {
+                    tmrPTimer.Stop();
+                    floatPDotAngle = 0;
+                    tmrPTimer.Start();
+                }
             };
         }
        
