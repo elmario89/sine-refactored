@@ -7,6 +7,8 @@ namespace _4162_barkov
     public partial class frmMain : Form
     {
         private Trajectory _trajectory;
+        private Dot _dot;
+
         public frmMain()
         {
             InitializeComponent();
@@ -15,6 +17,7 @@ namespace _4162_barkov
         private void frmMain_Load(object sender, EventArgs e)
         {
             _trajectory = new Trajectory();
+            _dot = new Dot();
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
@@ -28,8 +31,14 @@ namespace _4162_barkov
             _trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * 0.02f;
             _trajectory.intPFrequency = tbarFTrajectoryFrequency.Value;
             _trajectory.Draw(pboxFWorkArea, e.Graphics);
+            _dot.Draw(pboxFWorkArea, e.Graphics);
 
             pboxFWorkArea.Invalidate();
+        }
+
+        private void btnFDotButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            _dot.RunDot();
         }
     }
 }

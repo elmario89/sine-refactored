@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,23 +12,23 @@ namespace _4162_barkov
         public int intPFrequency = 2;
 
         // properties of trajectory
-        private float _floatPPeriod;
-        private float _floatPAmplitude;
-        private float _floatPx0;
-        private float _floatPy0;
+        public float floatPPeriod;
+        public float floatPAmplitude;
+        public float floatPx0;
+        public float floatPy0;
 
         public void Draw(PictureBox pbox, Graphics g) 
         {
             // x0 right end coordinates
             // y0 horizontal line coordinates
-            _floatPx0 = (pbox.Width + pbox.Width * floatPScaleX) / 2;
-            _floatPy0 = pbox.Height / 2;
+            floatPx0 = (pbox.Width + pbox.Width * floatPScaleX) / 2;
+            floatPy0 = pbox.Height / 2;
 
             // width of sine by x with public multiplier (period)
-            _floatPPeriod = pbox.Width * floatPScaleX;
+            floatPPeriod = pbox.Width * floatPScaleX;
 
             // height of sine by y with public multiplier (amplitude)
-            _floatPAmplitude = (pbox.Height / 2) * floatPScaleY;
+            floatPAmplitude = (pbox.Height / 2) * floatPScaleY;
 
             Pen pen = new Pen(Brushes.Black, 0.01f);
 
@@ -41,13 +42,13 @@ namespace _4162_barkov
 
             for (float angle = 0; angle <= intPFrequency * Math.PI; angle += 0.001f)
             {
-                x = _floatPx0 - ((_floatPPeriod * angle) / (float)(intPFrequency * Math.PI));
-                y = _floatPy0 - _floatPAmplitude * (float)Math.Sin(angle);
+                x = floatPx0 - ((floatPPeriod * angle) / (float)(intPFrequency * Math.PI));
+                y = floatPy0 - floatPAmplitude * (float)Math.Sin(angle);
                 g.DrawLine(pen, x, y, x + 0.1f, y + 0.1f);
             }
 
             // draw horizontal line
-            g.DrawLine(pen, _floatPx0, _floatPy0, x, y);
+            g.DrawLine(pen, floatPx0, floatPy0, x, y);
         }
     }
 }
