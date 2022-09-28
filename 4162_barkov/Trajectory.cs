@@ -47,6 +47,22 @@ namespace _4162_barkov
                 g.DrawLine(pen, x, y, x + 0.1f, y + 0.1f);
             }
 
+            int r = 6;
+            int R = 24;
+            int k = R / r - 1;
+
+            float x1 = 0, y1 = 0;
+
+            for (double angle = 3 * Math.PI / 2; angle <= 5 * Math.PI / 2; angle += 0.001f)
+            {
+                x1 = (float)(floatPx0 + (R - r) * Math.Cos(angle) + r * Math.Cos((R - r) / r * angle));
+                y1 = (float)(floatPx0 + (R - r) * Math.Sin(angle) - r * Math.Sin((R - r) / r * angle));
+                //x1 = (float)(floatPx0 + xx * Math.Cos(angle));
+                //y1 = (float)(floatPy0 + yy * Math.Sin(angle));
+
+                g.DrawLine(new Pen(Color.Red, 0.3f), x1, y1, x1 + 0.1f, y1 + 0.1f);
+            }
+
             // draw horizontal line
             g.DrawLine(pen, floatPx0, floatPy0, x, y);
         }
