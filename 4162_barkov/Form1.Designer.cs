@@ -37,6 +37,7 @@
             this.tbarFTrajectorySizeY = new System.Windows.Forms.TrackBar();
             this.tbarFTrajectorySizeX = new System.Windows.Forms.TrackBar();
             this.labelFTrajectorySizeX = new System.Windows.Forms.Label();
+            this.btnFDotButtonStop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectoryFrequency)).BeginInit();
@@ -57,6 +58,7 @@
             // panelFControlArea
             // 
             this.panelFControlArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFControlArea.Controls.Add(this.btnFDotButtonStop);
             this.panelFControlArea.Controls.Add(this.btnFDotButton);
             this.panelFControlArea.Controls.Add(this.labelFTrajectorySizeXY);
             this.panelFControlArea.Controls.Add(this.tbarFTrajectoryFrequency);
@@ -71,8 +73,9 @@
             // 
             // btnFDotButton
             // 
+            this.btnFDotButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnFDotButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFDotButton.Location = new System.Drawing.Point(8, 377);
+            this.btnFDotButton.Location = new System.Drawing.Point(0, 245);
             this.btnFDotButton.Name = "btnFDotButton";
             this.btnFDotButton.Padding = new System.Windows.Forms.Padding(5);
             this.btnFDotButton.Size = new System.Drawing.Size(100, 50);
@@ -139,6 +142,17 @@
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
             // 
+            // btnFDotButtonStop
+            // 
+            this.btnFDotButtonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFDotButtonStop.Location = new System.Drawing.Point(107, 245);
+            this.btnFDotButtonStop.Name = "btnFDotButtonStop";
+            this.btnFDotButtonStop.Size = new System.Drawing.Size(104, 49);
+            this.btnFDotButtonStop.TabIndex = 7;
+            this.btnFDotButtonStop.Text = "Стоп";
+            this.btnFDotButtonStop.UseVisualStyleBackColor = true;
+            this.btnFDotButtonStop.Click += new System.EventHandler(this.btnFDotButtonStop_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -170,6 +184,7 @@
         private System.Windows.Forms.TrackBar tbarFTrajectoryFrequency;
         private System.Windows.Forms.Label labelFTrajectorySizeXY;
         private System.Windows.Forms.Button btnFDotButton;
+        private System.Windows.Forms.Button btnFDotButtonStop;
     }
 }
 

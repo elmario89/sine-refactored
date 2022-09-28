@@ -19,6 +19,20 @@ namespace _4162_barkov
 
         // running dot
         private PointF pointFPpointPosition;
+        private Timer tmrPTimer;
+
+        public Dot()
+        {
+            tmrPTimer = new Timer();
+            tmrPTimer.Interval = 1;
+            tmrPTimer.Elapsed += (_, __) =>
+            {
+                floatPDotAngle += 0.01f;
+
+                pointFPpointPosition = getXY();
+            };
+        }
+       
 
         public void Draw(PictureBox pbox, Graphics g)
         {
@@ -42,15 +56,12 @@ namespace _4162_barkov
 
         public void RunDot()
         {
-            Timer timer = new Timer();
-            timer.Interval = 1;
-            timer.Elapsed += (_, __) =>
-            {
-                floatPDotAngle += 0.01f;
+            tmrPTimer.Start();
+        }
 
-                pointFPpointPosition = getXY();
-            };
-            timer.Start();
+        public void StopDot()
+        {
+            tmrPTimer.Stop();
         }
 
         private PointF getXY()
