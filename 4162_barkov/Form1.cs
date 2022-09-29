@@ -1,4 +1,6 @@
 ﻿using System;
+using System.CodeDom;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,7 +9,10 @@ namespace _4162_barkov
     public partial class frmMain : Form
     {
         private Trajectory trajectory;
+        private Trajectory1 trajectory1;
         private Dot dot;
+
+        private const float tbarMultiplier = 0.02f;
 
         public frmMain()
         {
@@ -18,6 +23,7 @@ namespace _4162_barkov
         {
             trajectory = new Trajectory();
             dot = new Dot();
+            trajectory1 = new Trajectory1();
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
@@ -27,16 +33,19 @@ namespace _4162_barkov
             pboxFWorkArea.Height = ClientSize.Height;
             pboxFWorkArea.Width = baseWidth;
 
-            trajectory.floatPScaleX = tbarFTrajectorySizeX.Value * 0.02f;
-            trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * 0.02f;
+            trajectory.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
+            trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
             trajectory.intPFrequency = tbarFTrajectoryFrequency.Value;
 
-            dot.floatPScaleX = tbarFTrajectorySizeX.Value * 0.02f;
-            dot.floatPScaleY = tbarFTrajectorySizeY.Value * 0.02f;
+            dot.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
+            dot.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
             dot.intPFrequency = tbarFTrajectoryFrequency.Value;
 
             trajectory.Draw(pboxFWorkArea, e.Graphics);
             dot.Draw(pboxFWorkArea, e.Graphics);
+
+            //trajectory1.Draw(pboxFWorkArea, e.Graphics);
+            //trajectory1.scale = tbarFTrajectorySizeX.Value * 0.02f;
 
             pboxFWorkArea.Invalidate();
         }
