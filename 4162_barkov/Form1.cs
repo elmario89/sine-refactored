@@ -24,6 +24,7 @@ namespace _4162_barkov
             trajectory = new Trajectory();
             dot = new Dot();
             trajectory1 = new Trajectory1();
+            ResizeRedraw = true;
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
@@ -42,10 +43,12 @@ namespace _4162_barkov
             dot.intPFrequency = tbarFTrajectoryFrequency.Value;
 
             trajectory.Draw(pboxFWorkArea, e.Graphics);
-            dot.Draw(pboxFWorkArea, e.Graphics);
+            
+            trajectory1.Draw(pboxFWorkArea, e.Graphics);
+            trajectory1.scale = tbarFTrajectorySizeX.Value * 0.02f;
 
-            //trajectory1.Draw(pboxFWorkArea, e.Graphics);
-            //trajectory1.scale = tbarFTrajectorySizeX.Value * 0.02f;
+            dot.Draw(trajectory1.points, e.Graphics);
+            //dot.Draw(trajectory.points, e.Graphics);
 
             pboxFWorkArea.Invalidate();
         }

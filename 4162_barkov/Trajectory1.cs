@@ -14,7 +14,7 @@ namespace _4162_barkov
         private const double endAngle = 5 * Math.PI / 2;
 
         // step for angle
-        private const double angleStep = 0.001;
+        private const double angleStep = 0.1;
         
         // fixed radius
         private float r;
@@ -34,6 +34,7 @@ namespace _4162_barkov
         // draw trajectory
         public void Draw(PictureBox pbox, Graphics g)
         {
+            points.Clear();
             R = pbox.Height * scale / 2;
             r = R / 4;
 
@@ -44,24 +45,16 @@ namespace _4162_barkov
 
             Pen pen = new Pen(Brushes.Green, 1.5f);
 
-            float x = 0, y = 0;
 
             for (double angle = startAngle; angle <= endAngle; angle += angleStep)
             {
-                x = (float)(basePoint.X + (R - r) * Math.Cos(angle) + r * Math.Cos((R - r) / r * angle));
-                y = (float)(basePoint.Y + (R - r) * Math.Sin(angle) - r * Math.Sin((R - r) / r * angle));
-
-                g.DrawLine(pen, x, y, x + 0.1f, y + 0.1f);
+                float x = (float)(basePoint.X + (R - r) * Math.Cos(angle) + r * Math.Cos((R - r) / r * angle));
+                float y = (float)(basePoint.Y + (R - r) * Math.Sin(angle) - r * Math.Sin((R - r) / r * angle));
 
                 points.Add(new PointF(x, y));
             }
 
-            for (float i = y; i >= basePoint.Y / 2; i = i - (float)angleStep)
-            {
-                g.DrawLine(pen, x, i, x, i - 0.01f);
-
-                points.Add(new PointF(x, i));
-            }
+            g.DrawPolygon(pen, points.ToArray());
         }
     }
 }

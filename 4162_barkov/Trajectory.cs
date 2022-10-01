@@ -17,8 +17,12 @@ namespace _4162_barkov
         public float floatPx0;
         public float floatPy0;
 
+        // points
+        public List<PointF> points = new List<PointF>();
+
         public void Draw(PictureBox pbox, Graphics g) 
         {
+            points.Clear();
             // x0 right end coordinates
             // y0 horizontal line coordinates
             floatPx0 = (pbox.Width + pbox.Width * floatPScaleX) / 2;
@@ -32,38 +36,20 @@ namespace _4162_barkov
 
             Pen pen = new Pen(Brushes.Maroon, 0.01f);
 
-            float x = 0, y = 0;
-
             // draw back lines from 0 to 10
             for (float f = 0; f < pbox.Width; f += (pbox.Width / 10))
             {
                 g.DrawLine(new Pen(Brushes.Silver, 0.01F), f, pbox.Height, f, 0);
             }
 
-            for (float angle = 0; angle <= intPFrequency * Math.PI; angle += 0.001f)
+            for (float angle = 0; angle <= intPFrequency * Math.PI; angle += 0.1f)
             {
-                x = floatPx0 - ((floatPPeriod * angle) / (float)(intPFrequency * Math.PI));
-                y = floatPy0 - floatPAmplitude * (float)Math.Sin(angle);
-                g.DrawLine(pen, x, y, x + 0.1f, y + 0.1f);
+                float x = floatPx0 - ((floatPPeriod * angle) / (float)(intPFrequency * Math.PI));
+                float y = floatPy0 - floatPAmplitude * (float)Math.Sin(angle);
+                points.Add(new PointF(x, y));
             }
 
-            // draw horizontal line
-            g.DrawLine(pen, floatPx0, floatPy0, x, y);
-
-            //int r = 16;
-            //int R = 64;
-
-            //float x1 = 0, y1 = 0;
-
-            //for (double angle = 3 * Math.PI / 2; angle <= 5 * Math.PI / 2; angle += 0.001f)
-            //{
-            //    x1 = (float)(floatPx0 + (R - r) * Math.Cos(angle) + r * Math.Cos((R - r) / r * angle));
-            //    y1 = (float)(floatPy0 + (R - r) * Math.Sin(angle) - r * Math.Sin((R - r) / r * angle));
-            //    //x1 = (float)(floatPx0 + xx * Math.Cos(angle));
-            //    //y1 = (float)(floatPy0 + yy * Math.Sin(angle));
-
-            //    g.DrawLine(new Pen(Color.Red, 0.3f), x1, y1, x1 + 0.1f, y1 + 0.1f);
-            //}
+            g.DrawPolygon(pen, points.ToArray());
         }
     }
 }
