@@ -38,10 +38,6 @@ namespace _4162_barkov
             trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
             trajectory.intPFrequency = tbarFTrajectoryFrequency.Value;
 
-            dot.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
-            dot.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
-            dot.intPFrequency = tbarFTrajectoryFrequency.Value;
-
             trajectory.Draw(pboxFWorkArea, e.Graphics);
             
             trajectory1.Draw(pboxFWorkArea, e.Graphics);
