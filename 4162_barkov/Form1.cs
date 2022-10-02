@@ -8,9 +8,8 @@ namespace _4162_barkov
 {
     public partial class frmMain : Form
     {
-        private Trajectory trajectory;
-        private Trajectory1 trajectory1;
-        private Dot dot;
+        private SineTrajectory sine;
+        private HypocycloidTrajectory hypocycloid;
 
         private const float tbarMultiplier = 0.02f;
 
@@ -21,10 +20,8 @@ namespace _4162_barkov
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            trajectory = new Trajectory();
-            dot = new Dot();
-            trajectory1 = new Trajectory1();
-            ResizeRedraw = true;
+            sine = new SineTrajectory(200);
+            hypocycloid = new HypocycloidTrajectory(100);
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
@@ -34,29 +31,30 @@ namespace _4162_barkov
             pboxFWorkArea.Height = ClientSize.Height;
             pboxFWorkArea.Width = baseWidth;
 
-            trajectory.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
-            trajectory.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
-            trajectory.intPFrequency = tbarFTrajectoryFrequency.Value;
+            sine.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
+            sine.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
+            sine.intPFrequency = tbarFTrajectoryFrequency.Value;
 
-            trajectory.Draw(pboxFWorkArea, e.Graphics);
-            
-            trajectory1.Draw(pboxFWorkArea, e.Graphics);
-            trajectory1.scale = tbarFTrajectorySizeX.Value * 0.02f;
+            sine.Draw(pboxFWorkArea, e.Graphics);
+            sine.DrawDot(e.Graphics);
 
-            dot.Draw(trajectory1.points, e.Graphics);
-            //dot.Draw(trajectory.points, e.Graphics);
+            hypocycloid.Draw(pboxFWorkArea, e.Graphics);
+            hypocycloid.DrawDot(e.Graphics);
+            hypocycloid.scale = tbarFTrajectorySizeX.Value * tbarMultiplier;
 
             pboxFWorkArea.Invalidate();
         }
 
         private void btnFDotButton_MouseDown(object sender, MouseEventArgs e)
         {
-            dot.RunDot();
+            hypocycloid.RunDot();
+            sine.RunDot();
         }
 
         private void btnFDotButtonStop_Click(object sender, EventArgs e)
         {
-            dot.StopDot();
+            hypocycloid.StopDot();
+            sine.StopDot();
         }
     }
 }

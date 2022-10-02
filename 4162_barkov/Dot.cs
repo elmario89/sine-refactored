@@ -12,21 +12,29 @@ namespace _4162_barkov
         private PointF pointFPpointPosition;
         private Timer tmrPTimer;
 
-        public void Draw(List<PointF> points, Graphics g)
-        {
-            //points.Clear();
+        // points for polygon, size is dynamic
+        public PointF[] points;
+        public int pointsSize = 100;
 
+        public Dot(int size)
+        {
+            pointsSize = size;
+            points = new PointF[pointsSize];
+        }
+
+        public void DrawDot(Graphics g)
+        {
             int i = 0;
             tmrPTimer = new Timer();
             tmrPTimer.Interval = 100;
             tmrPTimer.Elapsed += (_, __) =>
             {
-                //floatPDotAngle += 0.01f;
-                PointF currentPoint = points.ToArray()[i];
+                PointF currentPoint = points[i];
 
                 pointFPpointPosition = currentPoint;
 
-                if (i >= points.ToArray().Length - 1)
+
+                if (i >= points.Length - 1)
                 {
                     tmrPTimer.Stop();
                     i = 0;

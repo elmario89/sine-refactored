@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace _4162_barkov
 {
-    internal class Trajectory
+    internal class SineTrajectory: Dot 
     {
         public float floatPScaleX = 0.5f;
         public float floatPScaleY = 0.5f;
@@ -17,12 +17,14 @@ namespace _4162_barkov
         public float floatPx0;
         public float floatPy0;
 
-        // points
-        public List<PointF> points = new List<PointF>();
+        public SineTrajectory(int size) : base(size)
+        {
+            pointsSize = size;
+            points = new PointF[pointsSize];
+        }
 
         public void Draw(PictureBox pbox, Graphics g) 
         {
-            points.Clear();
             // x0 right end coordinates
             // y0 horizontal line coordinates
             floatPx0 = (pbox.Width + pbox.Width * floatPScaleX) / 2;
@@ -42,14 +44,18 @@ namespace _4162_barkov
                 g.DrawLine(new Pen(Brushes.Silver, 0.01F), f, pbox.Height, f, 0);
             }
 
-            for (float angle = 0; angle <= intPFrequency * Math.PI; angle += 0.1f)
+            float dubFi = 0;
+            float dubDeltaFi = intPFrequency * (float)Math.PI / points.Length;
+
+            for (int i = 0; i < points.Length; i++)
             {
-                float x = floatPx0 - ((floatPPeriod * angle) / (float)(intPFrequency * Math.PI));
-                float y = floatPy0 - floatPAmplitude * (float)Math.Sin(angle);
-                points.Add(new PointF(x, y));
+                float x = floatPx0 - ((floatPPeriod * dubFi) / (float)(intPFrequency * Math.PI));
+                float y = floatPy0 - floatPAmplitude * (float)Math.Sin(dubFi);
+                points[i] = (new PointF(x, y));
+                dubFi = dubFi + dubDeltaFi;
             }
 
-            g.DrawPolygon(pen, points.ToArray());
+            g.DrawPolygon(pen, points);
         }
     }
 }
