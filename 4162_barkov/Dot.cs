@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Drawing;
 using Timer = System.Timers.Timer;
 
 namespace _4162_barkov
@@ -32,7 +29,6 @@ namespace _4162_barkov
                 PointF currentPoint = points[i];
 
                 pointFPpointPosition = currentPoint;
-
 
                 if (i >= points.Length - 1)
                 {

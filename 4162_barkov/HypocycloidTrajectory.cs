@@ -17,6 +17,7 @@ namespace _4162_barkov
 
         // scale
         public float scale = 0.5f;
+        public int intPFrequency = 4;
 
         public HypocycloidTrajectory(int size) : base(size)
         {
@@ -28,7 +29,7 @@ namespace _4162_barkov
         public void Draw(PictureBox pbox, Graphics g)
         {
             R = pbox.Height * scale / 2;
-            r = R / 4;
+            r = R / intPFrequency;
 
             basePoint = new PointF(
                 (pbox.Width - r) / 2,
@@ -37,8 +38,8 @@ namespace _4162_barkov
 
             Pen pen = new Pen(Brushes.Green, 1.5f);
 
-            float dubFi = 3 * (float)Math.PI / 2;
-            float dubDeltaFi = 5 * (float)Math.PI / 2 / 100;
+            float dubFi = 0;
+            float dubDeltaFi = (float)Math.PI * 2 / points.Length;
 
             for (int i = 0; i < points.Length; i++)
             {

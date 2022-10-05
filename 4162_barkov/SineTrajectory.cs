@@ -51,6 +51,12 @@ namespace _4162_barkov
             {
                 float x = floatPx0 - ((floatPPeriod * dubFi) / (float)(intPFrequency * Math.PI));
                 float y = floatPy0 - floatPAmplitude * (float)Math.Sin(dubFi);
+
+                if (i == points.Length - 1)
+                {
+                    y = floatPy0;
+                }
+
                 points[i] = (new PointF(x, y));
                 dubFi = dubFi + dubDeltaFi;
             }

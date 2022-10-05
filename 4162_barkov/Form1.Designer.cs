@@ -30,6 +30,7 @@
         {
             this.pboxFWorkArea = new System.Windows.Forms.PictureBox();
             this.panelFControlArea = new System.Windows.Forms.Panel();
+            this.btnFDotButtonStop = new System.Windows.Forms.Button();
             this.btnFDotButton = new System.Windows.Forms.Button();
             this.labelFTrajectorySizeXY = new System.Windows.Forms.Label();
             this.tbarFTrajectoryFrequency = new System.Windows.Forms.TrackBar();
@@ -37,7 +38,6 @@
             this.tbarFTrajectorySizeY = new System.Windows.Forms.TrackBar();
             this.tbarFTrajectorySizeX = new System.Windows.Forms.TrackBar();
             this.labelFTrajectorySizeX = new System.Windows.Forms.Label();
-            this.btnFDotButtonStop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectoryFrequency)).BeginInit();
@@ -71,11 +71,22 @@
             this.panelFControlArea.Size = new System.Drawing.Size(274, 449);
             this.panelFControlArea.TabIndex = 1;
             // 
+            // btnFDotButtonStop
+            // 
+            this.btnFDotButtonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFDotButtonStop.Location = new System.Drawing.Point(106, 258);
+            this.btnFDotButtonStop.Name = "btnFDotButtonStop";
+            this.btnFDotButtonStop.Size = new System.Drawing.Size(104, 49);
+            this.btnFDotButtonStop.TabIndex = 7;
+            this.btnFDotButtonStop.Text = "Стоп";
+            this.btnFDotButtonStop.UseVisualStyleBackColor = true;
+            this.btnFDotButtonStop.Click += new System.EventHandler(this.btnFDotButtonStop_Click);
+            // 
             // btnFDotButton
             // 
             this.btnFDotButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnFDotButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFDotButton.Location = new System.Drawing.Point(0, 245);
+            this.btnFDotButton.Location = new System.Drawing.Point(0, 258);
             this.btnFDotButton.Name = "btnFDotButton";
             this.btnFDotButton.Padding = new System.Windows.Forms.Padding(5);
             this.btnFDotButton.Size = new System.Drawing.Size(100, 50);
@@ -97,8 +108,8 @@
             // tbarFTrajectoryFrequency
             // 
             this.tbarFTrajectoryFrequency.Location = new System.Drawing.Point(7, 196);
-            this.tbarFTrajectoryFrequency.Maximum = 50;
-            this.tbarFTrajectoryFrequency.Minimum = 1;
+            this.tbarFTrajectoryFrequency.Maximum = 26;
+            this.tbarFTrajectoryFrequency.Minimum = 2;
             this.tbarFTrajectoryFrequency.Name = "tbarFTrajectoryFrequency";
             this.tbarFTrajectoryFrequency.Size = new System.Drawing.Size(261, 56);
             this.tbarFTrajectoryFrequency.TabIndex = 4;
@@ -141,17 +152,6 @@
             this.labelFTrajectorySizeX.Size = new System.Drawing.Size(102, 20);
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
-            // 
-            // btnFDotButtonStop
-            // 
-            this.btnFDotButtonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFDotButtonStop.Location = new System.Drawing.Point(107, 245);
-            this.btnFDotButtonStop.Name = "btnFDotButtonStop";
-            this.btnFDotButtonStop.Size = new System.Drawing.Size(104, 49);
-            this.btnFDotButtonStop.TabIndex = 7;
-            this.btnFDotButtonStop.Text = "Стоп";
-            this.btnFDotButtonStop.UseVisualStyleBackColor = true;
-            this.btnFDotButtonStop.Click += new System.EventHandler(this.btnFDotButtonStop_Click);
             // 
             // frmMain
             // 
