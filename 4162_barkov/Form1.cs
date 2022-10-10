@@ -26,11 +26,6 @@ namespace _4162_barkov
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
         {
-            int baseWidth = ClientSize.Width - panelFControlArea.ClientSize.Width;
-
-            pboxFWorkArea.Height = ClientSize.Height;
-            pboxFWorkArea.Width = baseWidth;
-
             sine.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
             sine.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
             sine.intPFrequency = tbarFTrajectoryFrequency.Value;

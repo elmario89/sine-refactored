@@ -47,6 +47,9 @@
             // 
             // pboxFWorkArea
             // 
+            this.pboxFWorkArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pboxFWorkArea.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pboxFWorkArea.Location = new System.Drawing.Point(0, 1);
             this.pboxFWorkArea.Name = "pboxFWorkArea";

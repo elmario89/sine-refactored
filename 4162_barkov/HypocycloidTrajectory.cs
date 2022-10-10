@@ -38,8 +38,8 @@ namespace _4162_barkov
 
             Pen pen = new Pen(Brushes.Green, 1.5f);
 
-            float dubFi = 0;
-            float dubDeltaFi = (float)Math.PI * 2 / points.Length;
+            float dubFi = 3 * (float)Math.PI / 2;
+            float dubDeltaFi = (float)Math.PI / points.Length;
 
             for (int i = 0; i < points.Length; i++)
             {
