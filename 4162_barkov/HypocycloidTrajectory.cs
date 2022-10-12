@@ -38,13 +38,18 @@ namespace _4162_barkov
 
             Pen pen = new Pen(Brushes.Green, 1.5f);
 
-            float dubFi = 3 * (float)Math.PI / 2;
-            float dubDeltaFi = (float)Math.PI / points.Length;
+            float dubFi = 0;
+            float dubDeltaFi = 2 * (float)Math.PI / points.Length;
 
             for (int i = 0; i < points.Length; i++)
             {
                 float x = (float)(basePoint.X + (R - r) * Math.Cos(dubFi) + r * Math.Cos((R - r) / r * dubFi));
                 float y = (float)(basePoint.Y + (R - r) * Math.Sin(dubFi) - r * Math.Sin((R - r) / r * dubFi));
+
+                if (dubFi > Math.PI / 2 && dubFi < 3 * Math.PI / 2) // 3.14
+                {
+                    x = basePoint.X;
+                }
 
                 points[i] = new PointF(x, y);
                 dubFi = dubFi + dubDeltaFi;
