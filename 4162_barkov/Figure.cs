@@ -17,18 +17,16 @@ namespace _4162_barkov
             tmrPTimer = new Timer();
 
             int iteration = 0;
-            tmrPTimer.Interval = 100;
+            tmrPTimer.Interval = 25;
             tmrPTimer.Elapsed += (_, __) =>
             {
                 PointF currentPoint = points[iteration];
 
                 pointFPpointPosition = currentPoint;
 
-                if (iteration >= points.Length - (speed / 2))
+                if (iteration >= points.Length - (speed / 3))
                 {
-                    tmrPTimer.Stop();
                     iteration = 0;
-                    tmrPTimer.Start();
                     return;
                 }
                 iteration = iteration + (speed / 3);
