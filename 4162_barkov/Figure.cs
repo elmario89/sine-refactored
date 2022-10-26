@@ -14,7 +14,7 @@ namespace _4162_barkov
         private float size;
 
         public int speed = 1;
-        public int breateRate = 1;
+        public int breatheRate = 1;
 
         public void DrawFigure(Graphics g)
         {
@@ -39,7 +39,7 @@ namespace _4162_barkov
                 }
 
                 a = a + deltaA;
-                size = Math.Abs((float)Math.Cos(a * breateRate));
+                size = Math.Abs((float)Math.Cos(a * breatheRate));
                 iteration = iteration + (speed / 3);
             };
 

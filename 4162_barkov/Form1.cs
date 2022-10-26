@@ -27,7 +27,7 @@ namespace _4162_barkov
             hypocycloid.scale = tbarFTrajectorySizeX.Value * tbarMultiplier;
             hypocycloid.intPFrequency = tbarFTrajectoryFrequency.Value * 2;
             hypocycloid.speed = tbarFFigureSpeed.Value;
-            hypocycloid.breateRate = tbarFFigureBreatheRate.Value;
+            hypocycloid.breatheRate = tbarFFigureBreatheRate.Value;
 
             pboxFWorkArea.Invalidate();
         }
