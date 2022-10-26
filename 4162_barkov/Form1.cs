@@ -1,15 +1,11 @@
 ﻿using System;
-using System.CodeDom;
-using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace _4162_barkov
 {
     public partial class frmMain : Form
     {
-        private SineTrajectory sine;
-        private HypocycloidTrajectory hypocycloid;
+        private Figure hypocycloid;
 
         private const float tbarMultiplier = 0.02f;
 
@@ -20,37 +16,24 @@ namespace _4162_barkov
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            sine = new SineTrajectory(200);
-            hypocycloid = new HypocycloidTrajectory(100);
+            hypocycloid = new Figure();
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
         {
-            sine.floatPScaleX = tbarFTrajectorySizeX.Value * tbarMultiplier;
-            sine.floatPScaleY = tbarFTrajectorySizeY.Value * tbarMultiplier;
-            sine.intPFrequency = tbarFTrajectoryFrequency.Value;
-
-            sine.Draw(pboxFWorkArea, e.Graphics);
-            sine.DrawDot(e.Graphics);
 
             hypocycloid.Draw(pboxFWorkArea, e.Graphics);
-            hypocycloid.DrawDot(e.Graphics);
+            hypocycloid.DrawFigure(e.Graphics);
             hypocycloid.scale = tbarFTrajectorySizeX.Value * tbarMultiplier;
             hypocycloid.intPFrequency = tbarFTrajectoryFrequency.Value * 2;
+            hypocycloid.speed = tbarFTrajectorySpeed.Value;
 
             pboxFWorkArea.Invalidate();
         }
 
         private void btnFDotButton_MouseDown(object sender, MouseEventArgs e)
         {
-            hypocycloid.RunDot();
-            sine.RunDot();
-        }
-
-        private void btnFDotButtonStop_Click(object sender, EventArgs e)
-        {
-            hypocycloid.StopDot();
-            sine.StopDot();
+            hypocycloid.RunFigure();
         }
     }
 }

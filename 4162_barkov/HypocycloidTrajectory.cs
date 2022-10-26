@@ -4,32 +4,21 @@ using System.Windows.Forms;
 
 namespace _4162_barkov
 {
-    internal class HypocycloidTrajectory: Dot
+    internal class HypocycloidTrajectory
     {
-        // fixed radius
-        private float r;
-
-        // spin radius
-        private float R;
-
         // center of figure
         private PointF basePoint;
 
         // scale
         public float scale = 0.5f;
         public int intPFrequency = 4;
-
-        public HypocycloidTrajectory(int size) : base(size)
-        {
-            pointsSize = size;
-            points = new PointF[pointsSize];
-        }
+        protected PointF[] points = new PointF[300];
 
         // draw trajectory
         public void Draw(PictureBox pbox, Graphics g)
         {
-            R = pbox.Height * scale / 2;
-            r = R / intPFrequency;
+            float R = (pbox.Height < pbox.Width ? pbox.Height : pbox.Width) * scale / 2;
+            float r = R / intPFrequency;
 
             basePoint = new PointF(
                 (pbox.Width - r) / 2,
@@ -40,6 +29,12 @@ namespace _4162_barkov
 
             float dubFi = 0;
             float dubDeltaFi = 2 * (float)Math.PI / points.Length;
+
+            // draw back lines from 0 to 10
+            for (float f = 0; f < pbox.Width; f += (pbox.Width / 10))
+            {
+                g.DrawLine(new Pen(Brushes.Silver, 0.01F), f, pbox.Height, f, 0);
+            }
 
             for (int i = 0; i < points.Length; i++)
             {
