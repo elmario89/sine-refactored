@@ -14,6 +14,7 @@ namespace _4162_barkov
         private float size;
 
         public int speed = 1;
+        public int breateRate = 1;
 
         public void DrawFigure(Graphics g)
         {
@@ -38,7 +39,7 @@ namespace _4162_barkov
                 }
 
                 a = a + deltaA;
-                size = (float)Math.Cos(a);
+                size = Math.Abs((float)Math.Cos(a * breateRate));
                 iteration = iteration + (speed / 3);
             };
 
@@ -47,7 +48,9 @@ namespace _4162_barkov
                 return;
             }
 
-            delta = scale * 50 * size;
+            //delta = scale * size * 25;
+            //or from 0 to big
+            delta = (scale + size) * 25;
 
             Pen pen = new Pen(Brushes.Red, 0.5f);
             g.DrawLine(

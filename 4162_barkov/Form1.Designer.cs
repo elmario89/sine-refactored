@@ -30,18 +30,21 @@
         {
             this.pboxFWorkArea = new System.Windows.Forms.PictureBox();
             this.panelFControlArea = new System.Windows.Forms.Panel();
+            this.tbarFFigureSpeed = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnFDotButton = new System.Windows.Forms.Button();
             this.labelFTrajectorySizeXY = new System.Windows.Forms.Label();
             this.tbarFTrajectoryFrequency = new System.Windows.Forms.TrackBar();
             this.tbarFTrajectorySizeX = new System.Windows.Forms.TrackBar();
             this.labelFTrajectorySizeX = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbarFTrajectorySpeed = new System.Windows.Forms.TrackBar();
+            this.tbarFFigureBreatheRate = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectoryFrequency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySizeX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureBreatheRate)).BeginInit();
             this.SuspendLayout();
             // 
             // pboxFWorkArea
@@ -60,7 +63,9 @@
             // panelFControlArea
             // 
             this.panelFControlArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelFControlArea.Controls.Add(this.tbarFTrajectorySpeed);
+            this.panelFControlArea.Controls.Add(this.label2);
+            this.panelFControlArea.Controls.Add(this.tbarFFigureBreatheRate);
+            this.panelFControlArea.Controls.Add(this.tbarFFigureSpeed);
             this.panelFControlArea.Controls.Add(this.label1);
             this.panelFControlArea.Controls.Add(this.btnFDotButton);
             this.panelFControlArea.Controls.Add(this.labelFTrajectorySizeXY);
@@ -72,11 +77,31 @@
             this.panelFControlArea.Size = new System.Drawing.Size(274, 449);
             this.panelFControlArea.TabIndex = 1;
             // 
+            // tbarFFigureSpeed
+            // 
+            this.tbarFFigureSpeed.Location = new System.Drawing.Point(8, 196);
+            this.tbarFFigureSpeed.Maximum = 12;
+            this.tbarFFigureSpeed.Minimum = 3;
+            this.tbarFFigureSpeed.Name = "tbarFFigureSpeed";
+            this.tbarFFigureSpeed.Size = new System.Drawing.Size(261, 56);
+            this.tbarFFigureSpeed.TabIndex = 8;
+            this.tbarFFigureSpeed.Value = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.label1.Location = new System.Drawing.Point(4, 158);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Скорость фигуры";
+            // 
             // btnFDotButton
             // 
             this.btnFDotButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnFDotButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFDotButton.Location = new System.Drawing.Point(8, 258);
+            this.btnFDotButton.Location = new System.Drawing.Point(6, 387);
             this.btnFDotButton.Name = "btnFDotButton";
             this.btnFDotButton.Padding = new System.Windows.Forms.Padding(5);
             this.btnFDotButton.Size = new System.Drawing.Size(100, 50);
@@ -124,25 +149,24 @@
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
             // 
-            // label1
+            // tbarFFigureBreatheRate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.label1.Location = new System.Drawing.Point(4, 158);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Скорость фигуры";
+            this.tbarFFigureBreatheRate.Location = new System.Drawing.Point(8, 284);
+            this.tbarFFigureBreatheRate.Minimum = 1;
+            this.tbarFFigureBreatheRate.Name = "tbarFFigureBreatheRate";
+            this.tbarFFigureBreatheRate.Size = new System.Drawing.Size(261, 56);
+            this.tbarFFigureBreatheRate.TabIndex = 9;
+            this.tbarFFigureBreatheRate.Value = 1;
             // 
-            // tbarFTrajectorySpeed
+            // label2
             // 
-            this.tbarFTrajectorySpeed.Location = new System.Drawing.Point(8, 196);
-            this.tbarFTrajectorySpeed.Maximum = 12;
-            this.tbarFTrajectorySpeed.Minimum = 3;
-            this.tbarFTrajectorySpeed.Name = "tbarFTrajectorySpeed";
-            this.tbarFTrajectorySpeed.Size = new System.Drawing.Size(261, 56);
-            this.tbarFTrajectorySpeed.TabIndex = 8;
-            this.tbarFTrajectorySpeed.Value = 3;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.label2.Location = new System.Drawing.Point(4, 255);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Скорость дыхания";
             // 
             // frmMain
             // 
@@ -157,9 +181,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).EndInit();
             this.panelFControlArea.ResumeLayout(false);
             this.panelFControlArea.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectoryFrequency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySizeX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureBreatheRate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -174,7 +199,9 @@
         private System.Windows.Forms.Label labelFTrajectorySizeXY;
         private System.Windows.Forms.Button btnFDotButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar tbarFTrajectorySpeed;
+        private System.Windows.Forms.TrackBar tbarFFigureSpeed;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar tbarFFigureBreatheRate;
     }
 }
 
