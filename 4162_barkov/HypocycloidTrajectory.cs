@@ -27,8 +27,8 @@ namespace _4162_barkov
 
             Pen pen = new Pen(Brushes.Green, 1.5f);
 
-            float dubFi = 0;
-            float dubDeltaFi = 2 * (float)Math.PI / points.Length;
+            float a = 0;
+            float deltaA = 2 * (float)Math.PI / points.Length;
 
             // draw back lines from 0 to 10
             for (float f = 0; f < pbox.Width; f += (pbox.Width / 10))
@@ -38,16 +38,16 @@ namespace _4162_barkov
 
             for (int i = 0; i < points.Length; i++)
             {
-                float x = (float)(basePoint.X + (R - r) * Math.Cos(dubFi) + r * Math.Cos((R - r) / r * dubFi));
-                float y = (float)(basePoint.Y + (R - r) * Math.Sin(dubFi) - r * Math.Sin((R - r) / r * dubFi));
+                float x = (float)(basePoint.X + (R - r) * Math.Cos(a) + r * Math.Cos((R - r) / r * a));
+                float y = (float)(basePoint.Y + (R - r) * Math.Sin(a) - r * Math.Sin((R - r) / r * a));
 
-                if (dubFi > Math.PI / 2 && dubFi < 3 * Math.PI / 2) // 3.14
+                if (a > Math.PI / 2 && a < 3 * Math.PI / 2) // 3.14
                 {
                     x = basePoint.X;
                 }
 
                 points[i] = new PointF(x, y);
-                dubFi = dubFi + dubDeltaFi;
+                a = a + deltaA;
             }
 
             g.DrawPolygon(pen, points);

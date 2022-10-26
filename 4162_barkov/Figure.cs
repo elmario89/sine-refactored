@@ -22,8 +22,8 @@ namespace _4162_barkov
 
             int iteration = 0;
             tmrPTimer.Interval = 25;
-            float dubFi = 0;
-            float dubDeltaFi = 2 * (float)Math.PI / points.Length;
+            float a = 0;
+            float deltaA = 2 * (float)Math.PI / points.Length;
 
             tmrPTimer.Elapsed += (_, __) =>
             {
@@ -37,8 +37,8 @@ namespace _4162_barkov
                     return;
                 }
 
-                dubFi = dubFi + dubDeltaFi;
-                size = (float)Math.Cos(dubFi);
+                a = a + deltaA;
+                size = (float)Math.Cos(a);
                 iteration = iteration + (speed / 3);
             };
 
