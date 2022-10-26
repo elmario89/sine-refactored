@@ -7,13 +7,13 @@ namespace _4162_barkov
     internal class HypocycloidTrajectory
     {
         // center of figure
-        private PointF basePoint;
+        protected PointF basePoint;
+        protected PointF[] points = new PointF[300];
 
         // scale
         public float scale = 0.5f;
         public int intPFrequency = 4;
-        protected PointF[] points = new PointF[300];
-
+        
         // draw trajectory
         public void Draw(PictureBox pbox, Graphics g)
         {
