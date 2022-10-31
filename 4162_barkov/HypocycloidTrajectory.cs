@@ -13,7 +13,8 @@ namespace _4162_barkov
         // scale
         public float scale = 0.5f;
         public int intPFrequency = 4;
-        
+        public Color trajectoryColor = Color.Green;
+                
         // draw trajectory
         public void Draw(PictureBox pbox, Graphics g)
         {
@@ -25,7 +26,7 @@ namespace _4162_barkov
                 pbox.Height / 2
             );
 
-            Pen pen = new Pen(Brushes.Green, 1.5f);
+            Pen pen = new Pen(trajectoryColor, 1.5f);
 
             float a = 0;
             float deltaA = 2 * (float)Math.PI / points.Length;

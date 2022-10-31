@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
 namespace _4162_barkov
@@ -15,10 +16,10 @@ namespace _4162_barkov
 
         public int speed = 1;
         public int breatheRate = 1;
+        public Color figureColor = Color.Red;
 
-        public void DrawFigure(Graphics g)
+        public void DrawFigure(PictureBox pbox, Graphics g)
         {
-
             tmrPTimer = new Timer();
 
             int iteration = 0;
@@ -41,6 +42,8 @@ namespace _4162_barkov
                 a = a + deltaA;
                 size = Math.Abs((float)Math.Cos(a * breatheRate));
                 iteration = iteration + (speed / 3);
+
+                pbox.Invalidate();
             };
 
             if (!visible)
@@ -52,7 +55,7 @@ namespace _4162_barkov
             //or from 0 to big
             delta = (scale + size) * 25;
 
-            Pen pen = new Pen(Brushes.Red, 0.5f);
+            Pen pen = new Pen(figureColor, 2f);
             g.DrawLine(
                 pen,
                 pointFPpointPosition.X,
