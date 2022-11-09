@@ -53,63 +53,105 @@ namespace _4162_barkov
 
             //delta = scale * size * 25;
             //or from 0 to big
-            delta = (scale + size) * 25;
+            //delta = (scale + size) * 25;
+            float deltaVertexA = (scale + size) * 200;
+            float deltaVertexB = (scale + size) * 56;
+            float deltaVertexC = (scale + size) * 90;
+            float deltaVertexD = (scale + size) * 45;
+            float deltaVertexE = (scale + size) * 100;
+
+            Font font = new Font("Arial", 10);
 
             Pen pen = new Pen(figureColor, 2f);
-            g.DrawLine(
-                pen,
-                pointFPpointPosition.X,
-                pointFPpointPosition.Y,
-                pointFPpointPosition.X - 1 * delta,
-                pointFPpointPosition.Y
-            );
-            g.DrawLine(
-                pen,
-                pointFPpointPosition.X - 1 * delta,
-                pointFPpointPosition.Y,
-                pointFPpointPosition.X - 0.5f * delta,
-                pointFPpointPosition.Y - 1 * delta
-            );
-            g.DrawLine(
-                pen,
-                pointFPpointPosition.X - 0.5f * delta,
-                pointFPpointPosition.Y - 1 * delta,
-                pointFPpointPosition.X,
+            g.DrawString(
+                "A", 
+                font, 
+                Brushes.Black, 
+                pointFPpointPosition.X - 1 * deltaVertexA - 10, 
                 pointFPpointPosition.Y
             );
             g.DrawLine(
                 pen,
                 pointFPpointPosition.X,
                 pointFPpointPosition.Y,
-                pointFPpointPosition.X + 0.5f * delta,
-                pointFPpointPosition.Y - 1 * delta
-            );
-            g.DrawLine(
-                pen,
-                pointFPpointPosition.X + 0.5f * delta,
-                pointFPpointPosition.Y - 1 * delta,
-                pointFPpointPosition.X + 1 * delta,
+                pointFPpointPosition.X - 1 * deltaVertexA,
                 pointFPpointPosition.Y
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X + 1 * delta,
+                pointFPpointPosition.X - 1 * deltaVertexA,
+                pointFPpointPosition.Y,
+                pointFPpointPosition.X - 0.5f * deltaVertexB,
+                pointFPpointPosition.Y - 1 * deltaVertexB
+            );
+            g.DrawString(
+                "B",
+                font,
+                Brushes.Black,
+                pointFPpointPosition.X - 0.5f * deltaVertexB - 10,
+                pointFPpointPosition.Y - 1 * deltaVertexB - 15
+            );
+            g.DrawLine(
+                pen,
+                pointFPpointPosition.X - 0.5f * deltaVertexB,
+                pointFPpointPosition.Y - 1 * deltaVertexB,
+                pointFPpointPosition.X,
+                pointFPpointPosition.Y
+            );
+            g.DrawString(
+                "C",
+                font,
+                Brushes.Black,
+                pointFPpointPosition.X + 0.5f * deltaVertexC - 10,
+                pointFPpointPosition.Y - 1 * deltaVertexC - 15
+            );
+            g.DrawLine(
+                pen,
+                pointFPpointPosition.X,
+                pointFPpointPosition.Y,
+                pointFPpointPosition.X + 0.5f * deltaVertexC,
+                pointFPpointPosition.Y - 1 * deltaVertexC
+            );
+            g.DrawLine(
+                pen,
+                pointFPpointPosition.X + 0.5f * deltaVertexC,
+                pointFPpointPosition.Y - 1 * deltaVertexC,
+                pointFPpointPosition.X + 1 * deltaVertexD,
+                pointFPpointPosition.Y
+            );
+            g.DrawString(
+                "D",
+                font,
+                Brushes.Black,
+                pointFPpointPosition.X + 1 * deltaVertexD,
+                pointFPpointPosition.Y
+            );
+            g.DrawLine(
+                pen,
+                pointFPpointPosition.X + 1 * deltaVertexD,
                 pointFPpointPosition.Y,
                 pointFPpointPosition.X,
                 pointFPpointPosition.Y
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X + 0.5f * delta,
+                pointFPpointPosition.X + 0.5f * deltaVertexD,
                 pointFPpointPosition.Y,
                 pointFPpointPosition.X,
-                pointFPpointPosition.Y + 1 * delta
+                pointFPpointPosition.Y + 1 * deltaVertexE
+            );
+            g.DrawString(
+                "E",
+                font,
+                Brushes.Black,
+                pointFPpointPosition.X,
+                pointFPpointPosition.Y + 1 * deltaVertexE
             );
             g.DrawLine(
                 pen,
                 pointFPpointPosition.X,
-                pointFPpointPosition.Y + 1 * delta,
-                pointFPpointPosition.X - 0.5f * delta,
+                pointFPpointPosition.Y + 1 * deltaVertexE,
+                pointFPpointPosition.X - 0.5f * deltaVertexE,
                 pointFPpointPosition.Y
             );
         }
