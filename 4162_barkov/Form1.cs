@@ -10,8 +10,6 @@ namespace _4162_barkov
 
         private const float tbarMultiplier = 0.02f;
 
-
-
         public frmMain()
         {
             InitializeComponent();
@@ -20,6 +18,9 @@ namespace _4162_barkov
         private void frmMain_Load(object sender, EventArgs e)
         {
             hypocycloid = new Figure();
+            string[] lines = {"-50, 0", "-25, -50", "25, -50", "50, 0", "0, 50"};
+            tboxFVertexBox.Lines = lines;
+            hypocycloid.Vertices = tboxFVertexBox.Lines;
         }
 
         private void pboxFWorkArea_Paint(object sender, PaintEventArgs e)
@@ -87,6 +88,11 @@ namespace _4162_barkov
                 hypocycloid.figureColor = cdFFigureColorDialog.Color;
                 pboxFWorkArea.Invalidate();
             }
+        }
+
+        private void btnFRedrawButton_Click(object sender, EventArgs e)
+        {
+            hypocycloid.Vertices = tboxFVertexBox.Lines;
         }
     }
 }

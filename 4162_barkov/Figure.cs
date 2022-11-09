@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Timers.Timer;
 
 namespace _4162_barkov
@@ -11,12 +14,34 @@ namespace _4162_barkov
         private PointF pointFPpointPosition;
         private Timer tmrPTimer;
         private bool visible = false;
-        private float delta = 25;
         private float size;
 
         public int speed = 1;
         public int breatheRate = 1;
         public Color figureColor = Color.Red;
+
+        private Point[] _vertices;
+        private Point[] ParseVertices(string[] input) 
+        {
+            Point[] points = new Point[5];
+
+            for (int i = 0; i < points.Length; i++)
+            {
+                string[] splited = input[i].Split(',');
+
+                points[i] = new Point(
+                    Int32.Parse(splited[0]),
+                    Int32.Parse(splited[1])
+                );
+            }
+
+            return points;
+        }
+
+        public string[] Vertices
+        {
+            set { _vertices = this.ParseVertices(value); }
+        }
 
         public void DrawFigure(PictureBox pbox, Graphics g)
         {
@@ -51,50 +76,41 @@ namespace _4162_barkov
                 return;
             }
 
-            //delta = scale * size * 25;
-            //or from 0 to big
-            //delta = (scale + size) * 25;
-            float deltaVertexA = (scale + size) * 200;
-            float deltaVertexB = (scale + size) * 56;
-            float deltaVertexC = (scale + size) * 90;
-            float deltaVertexD = (scale + size) * 45;
-            float deltaVertexE = (scale + size) * 100;
-
+            Pen pen = new Pen(figureColor, 2f);
             Font font = new Font("Arial", 10);
 
-            Pen pen = new Pen(figureColor, 2f);
             g.DrawString(
                 "A", 
                 font, 
                 Brushes.Black, 
-                pointFPpointPosition.X - 1 * deltaVertexA - 10, 
-                pointFPpointPosition.Y
+                pointFPpointPosition.X + _vertices[0].X * (scale + size) - 10, 
+                pointFPpointPosition.Y + _vertices[0].Y * (scale + size)
             );
             g.DrawLine(
                 pen,
                 pointFPpointPosition.X,
                 pointFPpointPosition.Y,
-                pointFPpointPosition.X - 1 * deltaVertexA,
-                pointFPpointPosition.Y
+                pointFPpointPosition.X + _vertices[0].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[0].Y * (scale + size)
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X - 1 * deltaVertexA,
-                pointFPpointPosition.Y,
-                pointFPpointPosition.X - 0.5f * deltaVertexB,
-                pointFPpointPosition.Y - 1 * deltaVertexB
+                pointFPpointPosition.X + _vertices[0].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[0].Y * (scale + size),
+                pointFPpointPosition.X + _vertices[1].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[1].Y * (scale + size)
             );
             g.DrawString(
                 "B",
                 font,
                 Brushes.Black,
-                pointFPpointPosition.X - 0.5f * deltaVertexB - 10,
-                pointFPpointPosition.Y - 1 * deltaVertexB - 15
+                pointFPpointPosition.X + _vertices[1].X * (scale + size) - 10,
+                pointFPpointPosition.Y + _vertices[1].Y * (scale + size) - 15
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X - 0.5f * deltaVertexB,
-                pointFPpointPosition.Y - 1 * deltaVertexB,
+                pointFPpointPosition.X + _vertices[1].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[1].Y * (scale + size),
                 pointFPpointPosition.X,
                 pointFPpointPosition.Y
             );
@@ -102,60 +118,59 @@ namespace _4162_barkov
                 "C",
                 font,
                 Brushes.Black,
-                pointFPpointPosition.X + 0.5f * deltaVertexC - 10,
-                pointFPpointPosition.Y - 1 * deltaVertexC - 15
+                pointFPpointPosition.X + _vertices[2].X * (scale + size) - 10,
+                pointFPpointPosition.Y + _vertices[2].Y * (scale + size) - 15
             );
             g.DrawLine(
                 pen,
                 pointFPpointPosition.X,
                 pointFPpointPosition.Y,
-                pointFPpointPosition.X + 0.5f * deltaVertexC,
-                pointFPpointPosition.Y - 1 * deltaVertexC
+                pointFPpointPosition.X + _vertices[2].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[2].Y * (scale + size)
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X + 0.5f * deltaVertexC,
-                pointFPpointPosition.Y - 1 * deltaVertexC,
-                pointFPpointPosition.X + 1 * deltaVertexD,
-                pointFPpointPosition.Y
+                pointFPpointPosition.X + _vertices[2].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[2].Y * (scale + size),
+                pointFPpointPosition.X + _vertices[3].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[3].Y * (scale + size)
             );
             g.DrawString(
                 "D",
                 font,
                 Brushes.Black,
-                pointFPpointPosition.X + 1 * deltaVertexD,
-                pointFPpointPosition.Y
+                pointFPpointPosition.X + _vertices[3].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[3].Y * (scale + size)
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X + 1 * deltaVertexD,
-                pointFPpointPosition.Y,
+                pointFPpointPosition.X + _vertices[3].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[3].Y * (scale + size),
                 pointFPpointPosition.X,
                 pointFPpointPosition.Y
-            );
-            g.DrawLine(
-                pen,
-                pointFPpointPosition.X + 0.5f * deltaVertexD,
-                pointFPpointPosition.Y,
-                pointFPpointPosition.X,
-                pointFPpointPosition.Y + 1 * deltaVertexE
             );
             g.DrawString(
                 "E",
                 font,
                 Brushes.Black,
-                pointFPpointPosition.X,
-                pointFPpointPosition.Y + 1 * deltaVertexE
+                pointFPpointPosition.X + _vertices[4].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[4].Y * (scale + size)
             );
             g.DrawLine(
                 pen,
-                pointFPpointPosition.X,
-                pointFPpointPosition.Y + 1 * deltaVertexE,
-                pointFPpointPosition.X - 0.5f * deltaVertexE,
-                pointFPpointPosition.Y
+                pointFPpointPosition.X + _vertices[4].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[4].Y * (scale + size),
+                pointFPpointPosition.X + _vertices[3].X * (scale + size) / 2,
+                pointFPpointPosition.Y + _vertices[3].Y * (scale + size) / 2
+            );
+            g.DrawLine(
+                pen,
+                pointFPpointPosition.X + _vertices[4].X * (scale + size),
+                pointFPpointPosition.Y + _vertices[4].Y * (scale + size),
+                pointFPpointPosition.X + _vertices[0].X * (scale + size) / 2,
+                pointFPpointPosition.Y + _vertices[0].Y * (scale + size) / 2
             );
         }
-
         public void RunFigure()
         {
             visible = true;
