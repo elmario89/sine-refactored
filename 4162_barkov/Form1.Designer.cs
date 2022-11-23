@@ -54,6 +54,8 @@
             this.cdFCanvasColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFTrajectoryColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFFigureColorDialog = new System.Windows.Forms.ColorDialog();
+            this.btnFCopyButton = new System.Windows.Forms.Button();
+            this.btnFPasteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureBreatheRate)).BeginInit();
@@ -78,6 +80,8 @@
             // panelFControlArea
             // 
             this.panelFControlArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFControlArea.Controls.Add(this.btnFPasteButton);
+            this.panelFControlArea.Controls.Add(this.btnFCopyButton);
             this.panelFControlArea.Controls.Add(this.btnFRedrawDefaultButton);
             this.panelFControlArea.Controls.Add(this.btnFRedrawButton);
             this.panelFControlArea.Controls.Add(this.lblFVertexELabel);
@@ -312,6 +316,28 @@
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
             // 
+            // btnFCopyButton
+            // 
+            this.btnFCopyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFCopyButton.Location = new System.Drawing.Point(10, 627);
+            this.btnFCopyButton.Name = "btnFCopyButton";
+            this.btnFCopyButton.Size = new System.Drawing.Size(153, 50);
+            this.btnFCopyButton.TabIndex = 21;
+            this.btnFCopyButton.Text = "Копировать";
+            this.btnFCopyButton.UseVisualStyleBackColor = true;
+            this.btnFCopyButton.Click += new System.EventHandler(this.btnFCopyButton_Click);
+            // 
+            // btnFPasteButton
+            // 
+            this.btnFPasteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFPasteButton.Location = new System.Drawing.Point(166, 627);
+            this.btnFPasteButton.Name = "btnFPasteButton";
+            this.btnFPasteButton.Size = new System.Drawing.Size(153, 50);
+            this.btnFPasteButton.TabIndex = 22;
+            this.btnFPasteButton.Text = "Вставить";
+            this.btnFPasteButton.UseVisualStyleBackColor = true;
+            this.btnFPasteButton.Click += new System.EventHandler(this.btnFPasteButton_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,6 +388,8 @@
         private System.Windows.Forms.Label lblFVertexBLabel;
         private System.Windows.Forms.Button btnFRedrawButton;
         private System.Windows.Forms.Button btnFRedrawDefaultButton;
+        private System.Windows.Forms.Button btnFPasteButton;
+        private System.Windows.Forms.Button btnFCopyButton;
     }
 }
 

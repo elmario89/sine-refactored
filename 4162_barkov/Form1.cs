@@ -99,5 +99,16 @@ namespace _4162_barkov
             tboxFVertexBox.Lines = defaultVertices;
             hypocycloid.Vertices = tboxFVertexBox.Lines;
         }
+
+        private void btnFCopyButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(tboxFVertexBox.Text);
+        }
+
+        private void btnFPasteButton_Click(object sender, EventArgs e)
+        {
+            tboxFVertexBox.Text = Clipboard.GetText();
+            hypocycloid.Vertices = tboxFVertexBox.Lines;
+        }
     }
 }
