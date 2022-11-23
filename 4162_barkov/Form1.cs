@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace _4162_barkov
@@ -8,6 +10,10 @@ namespace _4162_barkov
         private Figure hypocycloid;
 
         private const float tbarMultiplier = 0.02f;
+        private string[] settingVertices = ConfigurationManager.AppSettings["vertices"]
+            .Split(',')
+            .Select(coordinate => coordinate.Replace(":", ", "))
+            .ToArray();
         private string[] defaultVertices = { "-50, 0", "-25, -50", "25, -50", "50, 0", "0, 50" };
 
         public frmMain()
@@ -18,7 +24,7 @@ namespace _4162_barkov
         private void frmMain_Load(object sender, EventArgs e)
         {
             hypocycloid = new Figure();
-            tboxFVertexBox.Lines = defaultVertices;
+            tboxFVertexBox.Lines = settingVertices;
             hypocycloid.Vertices = tboxFVertexBox.Lines;
         }
 
