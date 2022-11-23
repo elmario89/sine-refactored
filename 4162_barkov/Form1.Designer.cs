@@ -30,6 +30,14 @@
         {
             this.pboxFWorkArea = new System.Windows.Forms.PictureBox();
             this.panelFControlArea = new System.Windows.Forms.Panel();
+            this.btnFRedrawDefaultButton = new System.Windows.Forms.Button();
+            this.btnFRedrawButton = new System.Windows.Forms.Button();
+            this.lblFVertexELabel = new System.Windows.Forms.Label();
+            this.lblFVertexDLabel = new System.Windows.Forms.Label();
+            this.lblFVertexCLabel = new System.Windows.Forms.Label();
+            this.lblFVertexBLabel = new System.Windows.Forms.Label();
+            this.lblFVertexALabel = new System.Windows.Forms.Label();
+            this.tboxFVertexBox = new System.Windows.Forms.TextBox();
             this.btnFFigureColorButton = new System.Windows.Forms.Button();
             this.btnFTrajectoryColorButton = new System.Windows.Forms.Button();
             this.btnFPboxColorButton = new System.Windows.Forms.Button();
@@ -46,13 +54,6 @@
             this.cdFCanvasColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFTrajectoryColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFFigureColorDialog = new System.Windows.Forms.ColorDialog();
-            this.tboxFVertexBox = new System.Windows.Forms.TextBox();
-            this.lblFVertexALabel = new System.Windows.Forms.Label();
-            this.lblFVertexBLabel = new System.Windows.Forms.Label();
-            this.lblFVertexCLabel = new System.Windows.Forms.Label();
-            this.lblFVertexDLabel = new System.Windows.Forms.Label();
-            this.lblFVertexELabel = new System.Windows.Forms.Label();
-            this.btnFRedrawButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureBreatheRate)).BeginInit();
@@ -77,6 +78,7 @@
             // panelFControlArea
             // 
             this.panelFControlArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFControlArea.Controls.Add(this.btnFRedrawDefaultButton);
             this.panelFControlArea.Controls.Add(this.btnFRedrawButton);
             this.panelFControlArea.Controls.Add(this.lblFVertexELabel);
             this.panelFControlArea.Controls.Add(this.lblFVertexDLabel);
@@ -100,6 +102,87 @@
             this.panelFControlArea.Name = "panelFControlArea";
             this.panelFControlArea.Size = new System.Drawing.Size(322, 699);
             this.panelFControlArea.TabIndex = 1;
+            // 
+            // btnFRedrawDefaultButton
+            // 
+            this.btnFRedrawDefaultButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFRedrawDefaultButton.Location = new System.Drawing.Point(166, 545);
+            this.btnFRedrawDefaultButton.Name = "btnFRedrawDefaultButton";
+            this.btnFRedrawDefaultButton.Size = new System.Drawing.Size(153, 50);
+            this.btnFRedrawDefaultButton.TabIndex = 20;
+            this.btnFRedrawDefaultButton.Text = "По умолчанию";
+            this.btnFRedrawDefaultButton.UseVisualStyleBackColor = true;
+            this.btnFRedrawDefaultButton.Click += new System.EventHandler(this.btnFRedrawDefaultButton_Click);
+            // 
+            // btnFRedrawButton
+            // 
+            this.btnFRedrawButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFRedrawButton.Location = new System.Drawing.Point(166, 487);
+            this.btnFRedrawButton.Name = "btnFRedrawButton";
+            this.btnFRedrawButton.Size = new System.Drawing.Size(153, 50);
+            this.btnFRedrawButton.TabIndex = 19;
+            this.btnFRedrawButton.Text = "Перерисовать";
+            this.btnFRedrawButton.UseVisualStyleBackColor = true;
+            this.btnFRedrawButton.Click += new System.EventHandler(this.btnFRedrawButton_Click);
+            // 
+            // lblFVertexELabel
+            // 
+            this.lblFVertexELabel.AutoSize = true;
+            this.lblFVertexELabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
+            this.lblFVertexELabel.Location = new System.Drawing.Point(4, 597);
+            this.lblFVertexELabel.Name = "lblFVertexELabel";
+            this.lblFVertexELabel.Size = new System.Drawing.Size(23, 24);
+            this.lblFVertexELabel.TabIndex = 18;
+            this.lblFVertexELabel.Text = "E";
+            // 
+            // lblFVertexDLabel
+            // 
+            this.lblFVertexDLabel.AutoSize = true;
+            this.lblFVertexDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
+            this.lblFVertexDLabel.Location = new System.Drawing.Point(4, 571);
+            this.lblFVertexDLabel.Name = "lblFVertexDLabel";
+            this.lblFVertexDLabel.Size = new System.Drawing.Size(23, 24);
+            this.lblFVertexDLabel.TabIndex = 17;
+            this.lblFVertexDLabel.Text = "D";
+            // 
+            // lblFVertexCLabel
+            // 
+            this.lblFVertexCLabel.AutoSize = true;
+            this.lblFVertexCLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
+            this.lblFVertexCLabel.Location = new System.Drawing.Point(4, 543);
+            this.lblFVertexCLabel.Name = "lblFVertexCLabel";
+            this.lblFVertexCLabel.Size = new System.Drawing.Size(23, 24);
+            this.lblFVertexCLabel.TabIndex = 16;
+            this.lblFVertexCLabel.Text = "C";
+            // 
+            // lblFVertexBLabel
+            // 
+            this.lblFVertexBLabel.AutoSize = true;
+            this.lblFVertexBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
+            this.lblFVertexBLabel.Location = new System.Drawing.Point(5, 515);
+            this.lblFVertexBLabel.Name = "lblFVertexBLabel";
+            this.lblFVertexBLabel.Size = new System.Drawing.Size(22, 24);
+            this.lblFVertexBLabel.TabIndex = 15;
+            this.lblFVertexBLabel.Text = "B";
+            // 
+            // lblFVertexALabel
+            // 
+            this.lblFVertexALabel.AutoSize = true;
+            this.lblFVertexALabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
+            this.lblFVertexALabel.Location = new System.Drawing.Point(6, 489);
+            this.lblFVertexALabel.Name = "lblFVertexALabel";
+            this.lblFVertexALabel.Size = new System.Drawing.Size(23, 24);
+            this.lblFVertexALabel.TabIndex = 14;
+            this.lblFVertexALabel.Text = "A";
+            // 
+            // tboxFVertexBox
+            // 
+            this.tboxFVertexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.13F);
+            this.tboxFVertexBox.Location = new System.Drawing.Point(30, 487);
+            this.tboxFVertexBox.Multiline = true;
+            this.tboxFVertexBox.Name = "tboxFVertexBox";
+            this.tboxFVertexBox.Size = new System.Drawing.Size(130, 134);
+            this.tboxFVertexBox.TabIndex = 13;
             // 
             // btnFFigureColorButton
             // 
@@ -229,76 +312,6 @@
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
             // 
-            // tboxFVertexBox
-            // 
-            this.tboxFVertexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.13F);
-            this.tboxFVertexBox.Location = new System.Drawing.Point(30, 487);
-            this.tboxFVertexBox.Multiline = true;
-            this.tboxFVertexBox.Name = "tboxFVertexBox";
-            this.tboxFVertexBox.Size = new System.Drawing.Size(130, 134);
-            this.tboxFVertexBox.TabIndex = 13;
-            // 
-            // lblFVertexALabel
-            // 
-            this.lblFVertexALabel.AutoSize = true;
-            this.lblFVertexALabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
-            this.lblFVertexALabel.Location = new System.Drawing.Point(6, 489);
-            this.lblFVertexALabel.Name = "lblFVertexALabel";
-            this.lblFVertexALabel.Size = new System.Drawing.Size(23, 24);
-            this.lblFVertexALabel.TabIndex = 14;
-            this.lblFVertexALabel.Text = "A";
-            // 
-            // lblFVertexBLabel
-            // 
-            this.lblFVertexBLabel.AutoSize = true;
-            this.lblFVertexBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
-            this.lblFVertexBLabel.Location = new System.Drawing.Point(5, 515);
-            this.lblFVertexBLabel.Name = "lblFVertexBLabel";
-            this.lblFVertexBLabel.Size = new System.Drawing.Size(22, 24);
-            this.lblFVertexBLabel.TabIndex = 15;
-            this.lblFVertexBLabel.Text = "B";
-            // 
-            // lblFVertexCLabel
-            // 
-            this.lblFVertexCLabel.AutoSize = true;
-            this.lblFVertexCLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
-            this.lblFVertexCLabel.Location = new System.Drawing.Point(4, 543);
-            this.lblFVertexCLabel.Name = "lblFVertexCLabel";
-            this.lblFVertexCLabel.Size = new System.Drawing.Size(23, 24);
-            this.lblFVertexCLabel.TabIndex = 16;
-            this.lblFVertexCLabel.Text = "C";
-            // 
-            // lblFVertexDLabel
-            // 
-            this.lblFVertexDLabel.AutoSize = true;
-            this.lblFVertexDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
-            this.lblFVertexDLabel.Location = new System.Drawing.Point(4, 571);
-            this.lblFVertexDLabel.Name = "lblFVertexDLabel";
-            this.lblFVertexDLabel.Size = new System.Drawing.Size(23, 24);
-            this.lblFVertexDLabel.TabIndex = 17;
-            this.lblFVertexDLabel.Text = "D";
-            // 
-            // lblFVertexELabel
-            // 
-            this.lblFVertexELabel.AutoSize = true;
-            this.lblFVertexELabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12F);
-            this.lblFVertexELabel.Location = new System.Drawing.Point(4, 597);
-            this.lblFVertexELabel.Name = "lblFVertexELabel";
-            this.lblFVertexELabel.Size = new System.Drawing.Size(23, 24);
-            this.lblFVertexELabel.TabIndex = 18;
-            this.lblFVertexELabel.Text = "E";
-            // 
-            // btnFRedrawButton
-            // 
-            this.btnFRedrawButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFRedrawButton.Location = new System.Drawing.Point(166, 487);
-            this.btnFRedrawButton.Name = "btnFRedrawButton";
-            this.btnFRedrawButton.Size = new System.Drawing.Size(153, 50);
-            this.btnFRedrawButton.TabIndex = 19;
-            this.btnFRedrawButton.Text = "Перерисовать";
-            this.btnFRedrawButton.UseVisualStyleBackColor = true;
-            this.btnFRedrawButton.Click += new System.EventHandler(this.btnFRedrawButton_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -348,6 +361,7 @@
         private System.Windows.Forms.Label lblFVertexCLabel;
         private System.Windows.Forms.Label lblFVertexBLabel;
         private System.Windows.Forms.Button btnFRedrawButton;
+        private System.Windows.Forms.Button btnFRedrawDefaultButton;
     }
 }
 
