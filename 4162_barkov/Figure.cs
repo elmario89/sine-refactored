@@ -46,17 +46,20 @@ namespace _4162_barkov
         public void DrawFigure(PictureBox pbox, Graphics g)
         {
             tmrPTimer = new Timer();
+            tmrPTimer.Interval = 25;
+
+            if (pointFPpointPosition == null)
+            {
+                pointFPpointPosition = points[0];
+            }
 
             int iteration = 0;
-            tmrPTimer.Interval = 25;
             float a = 0;
             float deltaA = 2 * (float)Math.PI / points.Length;
 
             tmrPTimer.Elapsed += (_, __) =>
             {
-                PointF currentPoint = points[iteration];
-
-                pointFPpointPosition = currentPoint;
+                pointFPpointPosition = points[iteration];
 
                 if (iteration >= points.Length - (speed / 3))
                 {
