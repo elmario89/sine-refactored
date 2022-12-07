@@ -134,5 +134,15 @@ namespace _4162_barkov
             config.AppSettings.Settings["Vertices"].Value = parseVerticesToSettings(tboxFVertexBox.Lines);
             config.Save();
         }
+
+        private void tboxFVertexBox_TextChanged(object sender, EventArgs e)
+        {
+            tboxFVertexBox.Pasted += (_, args) =>
+            {
+                string[] stringSeparators = new string[] { "\r\n" };
+                tboxFVertexBox.Lines = args.ClipboardText.Split(stringSeparators, StringSplitOptions.None);
+                hypocycloid.Vertices = tboxFVertexBox.Lines;
+            };
+        }
     }
 }

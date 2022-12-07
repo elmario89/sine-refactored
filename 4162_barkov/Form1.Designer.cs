@@ -39,7 +39,6 @@
             this.lblFVertexCLabel = new System.Windows.Forms.Label();
             this.lblFVertexBLabel = new System.Windows.Forms.Label();
             this.lblFVertexALabel = new System.Windows.Forms.Label();
-            this.tboxFVertexBox = new System.Windows.Forms.TextBox();
             this.btnFFigureColorButton = new System.Windows.Forms.Button();
             this.btnFTrajectoryColorButton = new System.Windows.Forms.Button();
             this.btnFPboxColorButton = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@
             this.cdFCanvasColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFTrajectoryColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFFigureColorDialog = new System.Windows.Forms.ColorDialog();
+            this.tboxFVertexBox = new MyTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureBreatheRate)).BeginInit();
@@ -80,6 +80,7 @@
             // panelFControlArea
             // 
             this.panelFControlArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFControlArea.Controls.Add(this.tboxFVertexBox);
             this.panelFControlArea.Controls.Add(this.btnFPasteButton);
             this.panelFControlArea.Controls.Add(this.btnFCopyButton);
             this.panelFControlArea.Controls.Add(this.btnFRedrawDefaultButton);
@@ -89,7 +90,6 @@
             this.panelFControlArea.Controls.Add(this.lblFVertexCLabel);
             this.panelFControlArea.Controls.Add(this.lblFVertexBLabel);
             this.panelFControlArea.Controls.Add(this.lblFVertexALabel);
-            this.panelFControlArea.Controls.Add(this.tboxFVertexBox);
             this.panelFControlArea.Controls.Add(this.btnFFigureColorButton);
             this.panelFControlArea.Controls.Add(this.btnFTrajectoryColorButton);
             this.panelFControlArea.Controls.Add(this.btnFPboxColorButton);
@@ -200,15 +200,6 @@
             this.lblFVertexALabel.Size = new System.Drawing.Size(23, 24);
             this.lblFVertexALabel.TabIndex = 14;
             this.lblFVertexALabel.Text = "A";
-            // 
-            // tboxFVertexBox
-            // 
-            this.tboxFVertexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.13F);
-            this.tboxFVertexBox.Location = new System.Drawing.Point(30, 487);
-            this.tboxFVertexBox.Multiline = true;
-            this.tboxFVertexBox.Name = "tboxFVertexBox";
-            this.tboxFVertexBox.Size = new System.Drawing.Size(130, 134);
-            this.tboxFVertexBox.TabIndex = 13;
             // 
             // btnFFigureColorButton
             // 
@@ -338,6 +329,16 @@
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
             // 
+            // tboxFVertexBox
+            // 
+            this.tboxFVertexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.13F);
+            this.tboxFVertexBox.Location = new System.Drawing.Point(33, 492);
+            this.tboxFVertexBox.Multiline = true;
+            this.tboxFVertexBox.Name = "tboxFVertexBox";
+            this.tboxFVertexBox.Size = new System.Drawing.Size(127, 129);
+            this.tboxFVertexBox.TabIndex = 23;
+            this.tboxFVertexBox.TextChanged += new System.EventHandler(this.tboxFVertexBox_TextChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,7 +383,6 @@
         private System.Windows.Forms.ColorDialog cdFTrajectoryColorDialog;
         private System.Windows.Forms.ColorDialog cdFFigureColorDialog;
         private System.Windows.Forms.Label lblFVertexALabel;
-        private System.Windows.Forms.TextBox tboxFVertexBox;
         private System.Windows.Forms.Label lblFVertexELabel;
         private System.Windows.Forms.Label lblFVertexDLabel;
         private System.Windows.Forms.Label lblFVertexCLabel;
@@ -391,6 +391,7 @@
         private System.Windows.Forms.Button btnFRedrawDefaultButton;
         private System.Windows.Forms.Button btnFPasteButton;
         private System.Windows.Forms.Button btnFCopyButton;
+        private MyTextBox tboxFVertexBox;
     }
 }
 
