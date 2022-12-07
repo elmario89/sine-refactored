@@ -1,6 +1,8 @@
 ﻿using System;
+using System.CodeDom;
 using System.Configuration;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace _4162_barkov
@@ -30,6 +32,13 @@ namespace _4162_barkov
         private string parseVerticesToSettings(string[] input)
         {
             return String.Join(";", input);
+        }
+
+        private bool isMatchRegex(string input)
+        {
+            var result = Regex.Match(input, "^[\\d,\\. +-]+$").Success;
+
+            return result;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -137,8 +146,21 @@ namespace _4162_barkov
 
         private void tboxFVertexBox_TextChanged(object sender, EventArgs e)
         {
+
+           if (!isMatchRegex(tboxFVertexBox.Text.Replace("\r\n", "")))
+            {
+                MessageBox.Show("Invalid Vertices", "Message");
+                return;
+            }
+
+            tboxFVertexBox.Pasted += null;
             tboxFVertexBox.Pasted += (_, args) =>
             {
+                if (!isMatchRegex(args.ClipboardText.Replace("\r\n", "")))
+                {
+                    MessageBox.Show("Invalid Vertices", "Message");
+                    return;
+                }
                 string[] stringSeparators = new string[] { "\r\n" };
                 tboxFVertexBox.Lines = args.ClipboardText.Split(stringSeparators, StringSplitOptions.None);
                 hypocycloid.Vertices = tboxFVertexBox.Lines;
