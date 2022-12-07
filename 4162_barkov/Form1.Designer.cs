@@ -30,6 +30,8 @@
         {
             this.pboxFWorkArea = new System.Windows.Forms.PictureBox();
             this.panelFControlArea = new System.Windows.Forms.Panel();
+            this.btnFPasteButton = new System.Windows.Forms.Button();
+            this.btnFCopyButton = new System.Windows.Forms.Button();
             this.btnFRedrawDefaultButton = new System.Windows.Forms.Button();
             this.btnFRedrawButton = new System.Windows.Forms.Button();
             this.lblFVertexELabel = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.cdFCanvasColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFTrajectoryColorDialog = new System.Windows.Forms.ColorDialog();
             this.cdFFigureColorDialog = new System.Windows.Forms.ColorDialog();
-            this.btnFCopyButton = new System.Windows.Forms.Button();
-            this.btnFPasteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).BeginInit();
             this.panelFControlArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFigureBreatheRate)).BeginInit();
@@ -106,6 +106,28 @@
             this.panelFControlArea.Name = "panelFControlArea";
             this.panelFControlArea.Size = new System.Drawing.Size(322, 699);
             this.panelFControlArea.TabIndex = 1;
+            // 
+            // btnFPasteButton
+            // 
+            this.btnFPasteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFPasteButton.Location = new System.Drawing.Point(166, 627);
+            this.btnFPasteButton.Name = "btnFPasteButton";
+            this.btnFPasteButton.Size = new System.Drawing.Size(153, 50);
+            this.btnFPasteButton.TabIndex = 22;
+            this.btnFPasteButton.Text = "Вставить";
+            this.btnFPasteButton.UseVisualStyleBackColor = true;
+            this.btnFPasteButton.Click += new System.EventHandler(this.btnFPasteButton_Click);
+            // 
+            // btnFCopyButton
+            // 
+            this.btnFCopyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
+            this.btnFCopyButton.Location = new System.Drawing.Point(10, 627);
+            this.btnFCopyButton.Name = "btnFCopyButton";
+            this.btnFCopyButton.Size = new System.Drawing.Size(153, 50);
+            this.btnFCopyButton.TabIndex = 21;
+            this.btnFCopyButton.Text = "Копировать";
+            this.btnFCopyButton.UseVisualStyleBackColor = true;
+            this.btnFCopyButton.Click += new System.EventHandler(this.btnFCopyButton_Click);
             // 
             // btnFRedrawDefaultButton
             // 
@@ -316,28 +338,6 @@
             this.labelFTrajectorySizeX.TabIndex = 0;
             this.labelFTrajectorySizeX.Text = "Размер по X";
             // 
-            // btnFCopyButton
-            // 
-            this.btnFCopyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFCopyButton.Location = new System.Drawing.Point(10, 627);
-            this.btnFCopyButton.Name = "btnFCopyButton";
-            this.btnFCopyButton.Size = new System.Drawing.Size(153, 50);
-            this.btnFCopyButton.TabIndex = 21;
-            this.btnFCopyButton.Text = "Копировать";
-            this.btnFCopyButton.UseVisualStyleBackColor = true;
-            this.btnFCopyButton.Click += new System.EventHandler(this.btnFCopyButton_Click);
-            // 
-            // btnFPasteButton
-            // 
-            this.btnFPasteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.11F);
-            this.btnFPasteButton.Location = new System.Drawing.Point(166, 627);
-            this.btnFPasteButton.Name = "btnFPasteButton";
-            this.btnFPasteButton.Size = new System.Drawing.Size(153, 50);
-            this.btnFPasteButton.TabIndex = 22;
-            this.btnFPasteButton.Text = "Вставить";
-            this.btnFPasteButton.UseVisualStyleBackColor = true;
-            this.btnFPasteButton.Click += new System.EventHandler(this.btnFPasteButton_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -347,6 +347,7 @@
             this.Controls.Add(this.pboxFWorkArea);
             this.Name = "frmMain";
             this.Text = "Гипоциклойда";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pboxFWorkArea)).EndInit();

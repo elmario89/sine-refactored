@@ -10,15 +10,26 @@ namespace _4162_barkov
         private Figure hypocycloid;
 
         private const float tbarMultiplier = 0.02f;
-        private string[] settingVertices = ConfigurationManager.AppSettings["vertices"]
-            .Split(',')
-            .Select(coordinate => coordinate.Replace(":", ", "))
-            .ToArray();
-        private string[] defaultVertices = { "-50, 0", "-25, -50", "25, -50", "50, 0", "0, 50" };
+        private string[] settingVertices;
+        private string[] defaultVertices;
 
         public frmMain()
         {
+            settingVertices = parseVertices(ConfigurationManager.AppSettings["Vertices"]);
+            defaultVertices = parseVertices(ConfigurationManager.AppSettings["DefaultVertices"]);
             InitializeComponent();
+        }
+
+        private string[] parseVertices(string input)
+        {
+            return input
+                .Split(';')
+                .ToArray();
+        }
+
+        private string parseVerticesToSettings(string[] input)
+        {
+            return String.Join(";", input);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -115,6 +126,13 @@ namespace _4162_barkov
         {
             tboxFVertexBox.Text = Clipboard.GetText();
             hypocycloid.Vertices = tboxFVertexBox.Lines;
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            config.AppSettings.Settings["Vertices"].Value = parseVerticesToSettings(tboxFVertexBox.Lines);
+            config.Save();
         }
     }
 }
